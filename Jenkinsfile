@@ -35,7 +35,7 @@ pipeline {
                         ]
                     ], 
                         credentialsId: 'f96dfd41-08eb-4924-a2dd-92e56c19e853', 
-                        groupId: "${GrpupID}", 
+                        groupId: "${GroupID}", 
                         nexusUrl: '3.16.148.138:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
