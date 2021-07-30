@@ -26,9 +26,9 @@ pipeline {
                         type: 'war'
                         ]
                     ], 
-                        credentialsId: 'f235a4ee-4752-46b9-85e3-e39d31c020c2', 
+                        credentialsId: 'f96dfd41-08eb-4924-a2dd-92e56c19e853', 
                         groupId: 'one.svv', 
-                        nexusUrl: '3.17.10.223:8081', 
+                        nexusUrl: '3.16.148.138:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'SVVDevOps-SNAPSHOT', 
