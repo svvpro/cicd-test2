@@ -22,7 +22,7 @@ pipeline {
                     [
                         artifactId: 'SVVDevOpsLab', 
                         classifier: '', 
-                        file: 'target/', 
+                        file: 'target/SVVDevOpsLab-0.0.1-SNAPSHOT.war', 
                         type: 'war'
                         ]
                     ], 
