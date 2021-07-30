@@ -1,7 +1,7 @@
 pipeline {
     agent any
      environment { 
-        ArtivactId = readMavenPom().getArtivactId() 
+        ArtifactId= readMavenPom().getArtifactId() 
         GroupId = readMavenPom().getGroupId() 
         Version = readMavenPom().getVersion()
         Name =  readMavenPom().getName()
@@ -28,9 +28,9 @@ pipeline {
                     def NexusRepo = Version.endsWith("SNAPSHOT") ? "SVVDevOps-SNAPSHOT" : "SVVDevOps-RELEASE"
                     nexusArtifactUploader artifacts: [
                     [
-                        artifactId: "${ArtivactId}", 
+                        artifactId: "${ArtifactId}", 
                         classifier: '', 
-                        file: "target/${ArtivactId}-${Version}.war", 
+                        file: "target/${ArtifactId}-${Version}.war", 
                         type: 'war'
                         ]
                     ], 
