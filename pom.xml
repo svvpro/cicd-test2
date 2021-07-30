@@ -4,7 +4,7 @@
   <groupId>one.svv</groupId>
   <artifactId>SVVDevOpsLab</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1-RELEASE</version>
   <name>SVV</name>
   <url>http://maven.apache.org</url>
   <dependencies>
