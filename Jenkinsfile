@@ -1,5 +1,11 @@
 pipeline {
     agent any
+     environment { 
+        ArtivactId = readMavenPom().getArtivactId() 
+        GroupId = readMavenPom().getGroupId() 
+        Version = readMavenPom().getVersion()
+        Name =  readMavenPom().getName()
+    }
     tools {
         maven 'maven'
     }
@@ -18,22 +24,25 @@ pipeline {
         stage('Upload to Nexus stage') {
             steps {
                 echo 'Uploading stage...'
-                nexusArtifactUploader artifacts: [
+                script {
+                    def NexusRepo = Version.endsWith("SNAPSHOT") ? "SVVDevOps-SNAPSHOT" : "SVVDevOps-RELEASE"
+                    nexusArtifactUploader artifacts: [
                     [
-                        artifactId: 'SVVDevOpsLab', 
+                        artifactId: "${ArtivactId}", 
                         classifier: '', 
-                        file: 'target/SVVDevOpsLab-0.0.1-SNAPSHOT.war', 
+                        file: "target/${ArtivactId}-${Version}.war", 
                         type: 'war'
                         ]
                     ], 
                         credentialsId: 'f96dfd41-08eb-4924-a2dd-92e56c19e853', 
-                        groupId: 'one.svv', 
+                        groupId: "${GrpupID}", 
                         nexusUrl: '3.16.148.138:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
-                        repository: 'SVVDevOps-SNAPSHOT', 
-                        version: '0.0.1-SNAPSHOT'
+                        repository: "${NexusRepo}", 
+                        version: "${Version}"
             }
+                }
         }
         stage('Deployment stage') {
             steps {
