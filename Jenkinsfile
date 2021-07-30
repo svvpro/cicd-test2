@@ -64,5 +64,24 @@ pipeline {
             
             }
         }
+        stage ('Deploy to Dcoker'){
+            steps {
+                echo "Deploying ...."
+                sshPublisher(publishers: 
+                [sshPublisherDesc(
+                    configName: 'Ansible_Controller', 
+                    transfers: [
+                        sshTransfer(
+                                cleanRemote:false,
+                                execCommand: 'ansible-playbook /home/ansibleadmin/download-and-deploy-docker.yaml -i /home/ansibleadmin/hosts',
+                                execTimeout: 120000
+                        )
+                    ],
+                    usePromotionTimestamp: false, 
+                    verbose: false)
+                    ])
+            
+            }
+        }
     }
 }
