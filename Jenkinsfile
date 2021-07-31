@@ -34,9 +34,9 @@ pipeline {
                         type: 'war'
                         ]
                     ], 
-                        credentialsId: 'f96dfd41-08eb-4924-a2dd-92e56c19e853', 
+                        credentialsId: '799774dc-0070-407c-8099-39790234bd10', 
                         groupId: "${GroupID}", 
-                        nexusUrl: '3.16.148.138:8081', 
+                        nexusUrl: '18.188.94.176:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: "${NexusRepo}", 
@@ -53,7 +53,7 @@ pipeline {
                     transfers: [
                         sshTransfer(
                                 cleanRemote:false,
-                                execCommand: 'ansible-playbook /home/ansibleadmin/download-and-deploy.yaml -i /home/ansibleadmin/hosts',
+                                execCommand: 'ansible-playbook /home/ansibleadmin/download-and-deploy-tomcat.yaml -i /home/ansibleadmin/hosts',
                                 execTimeout: 120000
                         )
                     ], 
