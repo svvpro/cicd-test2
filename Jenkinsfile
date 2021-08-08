@@ -31,11 +31,11 @@ pipeline {
                 script {
                     def NexusRepo = Version.endsWith("SNAPSHOT") ? "SVVDevOps-SNAPSHOT" : "SVVDevOps-RELEASE"
                     nexusArtifactUploader artifacts: [
-                    [
-                        artifactId: "${ArtifactId}", 
-                        classifier: '', 
-                        file: "target/${ArtifactId}-${Version}.war", 
-                        type: 'war'
+                        [
+                            artifactId: "${ArtifactId}", 
+                            classifier: '', 
+                            file: "target/${ArtifactId}-${Version}.war", 
+                            type: 'war'
                         ]
                     ], 
                         credentialsId: '5731aa69-8531-434e-974b-42b756df25f5', 
