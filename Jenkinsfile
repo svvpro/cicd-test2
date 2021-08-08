@@ -34,9 +34,9 @@ pipeline {
                         type: 'war'
                         ]
                     ], 
-                        credentialsId: 'ab3d0349-c885-4cb9-9acc-4cfd472ceef4', 
+                        credentialsId: '5731aa69-8531-434e-974b-42b756df25f5', 
                         groupId: "${GroupID}", 
-                        nexusUrl: '18.188.53.245:8081', 
+                        nexusUrl: '3.141.168.191:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: "${NexusRepo}", 
@@ -64,7 +64,7 @@ pipeline {
             
             }
         }
-        stage ('Deploy to Dcoker'){
+        stage ('Deploy to Docker'){
             steps {
                 echo "Deploying ...."
                 sshPublisher(publishers: 
