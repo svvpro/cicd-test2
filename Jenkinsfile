@@ -19,6 +19,10 @@ pipeline {
         stage('Test stage') {
             steps {
                 echo 'Testing stage...'
+                echo "ArtifactId: ${ArtifactId}"
+                echo "GroupId: ${GroupId}"
+                echo "Version: ${Version}"
+                echo "Name: ${Name}"
             }
         }
         stage('Upload to Nexus stage') {
